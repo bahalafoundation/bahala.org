@@ -1,0 +1,4 @@
+baseURL = 'https://bahala.org/'
+languageCode = 'en-us'
+title = 'Bahala Foundation'
+theme = 'bahala'
