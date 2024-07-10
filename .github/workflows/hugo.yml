@@ -54,6 +54,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: npm
 
       - name: Install Node.js dependencies
         run: npm ci
@@ -62,7 +63,7 @@ jobs:
         env:
           TINA_PUBLIC_CLIENT_ID: ${{ secrets.TINA_PUBLIC_CLIENT_ID }}
           TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
-        run: npx tinacms build
+        run: TINA_PUBLIC_CLIENT_ID=$TINA_PUBLIC_CLIENT_ID TINA_TOKEN=$TINA_TOKEN npx tinacms build
 
       - name: Build with Hugo
         env:
