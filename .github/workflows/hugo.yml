@@ -61,34 +61,34 @@ jobs:
       - name: Install Node.js dependencies
         run: npm ci
 
-      - name: Build TinaCMS
-        env:
-          TINA_PUBLIC_CLIENT_ID: ${{ secrets.TINA_PUBLIC_CLIENT_ID }}
-          TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
-        run: npx tinacms build
+      # - name: Build TinaCMS
+      #   env:
+      #     TINA_PUBLIC_CLIENT_ID: ${{ secrets.TINA_PUBLIC_CLIENT_ID }}
+      #     TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
+      #   run: npx tinacms build
 
-      - name: Build with Hugo
-        env:
-            HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
-            HUGO_ENVIRONMENT: production
-        run: |
-          hugo \
-            --minify \
-            --baseURL "${{ steps.pages.outputs.base_url }}/"
+      # - name: Build with Hugo
+      #   env:
+      #       HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
+      #       HUGO_ENVIRONMENT: production
+      #   run: |
+      #     hugo \
+      #       --minify \
+      #       --baseURL "${{ steps.pages.outputs.base_url }}/"
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./public
+      # - name: Upload artifact
+      #   uses: actions/upload-pages-artifact@v3
+      #   with:
+      #     path: ./public
 
   # Deployment job
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+  # deploy:
+  #   environment:
+  #     name: github-pages
+  #     url: ${{ steps.deployment.outputs.page_url }}
+  #   runs-on: ubuntu-latest
+  #   needs: build
+  #   steps:
+  #     - name: Deploy to GitHub Pages
+  #       id: deployment
+  #       uses: actions/deploy-pages@v4
