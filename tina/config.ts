@@ -1,9 +1,16 @@
 import { defineConfig, Collection, TinaField } from "tinacms";
+declare var process : {
+  env: {
+    GITHUB_BRANCH: string,
+    HEAD: string,
+    TINA_PUBLIC_CLIENT_ID: string,
+    TINA_TOKEN: string,
+  }
+}
 
 // Your hosting provider likely exposes this as an environment variable
 const branch =
   process.env.GITHUB_BRANCH ||
-  process.env.VERCEL_GIT_COMMIT_REF ||
   process.env.HEAD ||
   "main";
 
