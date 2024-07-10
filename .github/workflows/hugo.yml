@@ -60,10 +60,7 @@ jobs:
         run: npm ci
 
       - name: Build TinaCMS
-        env:
-          TINA_PUBLIC_CLIENT_ID: ${{ secrets.TINA_PUBLIC_CLIENT_ID }}
-          TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
-        run: TINA_PUBLIC_CLIENT_ID=$TINA_PUBLIC_CLIENT_ID TINA_TOKEN=$TINA_TOKEN npx tinacms build
+        run: TINA_PUBLIC_CLIENT_ID=${{ secrets.TINA_PUBLIC_CLIENT_ID }} TINA_TOKEN=${{ secrets.TINA_TOKEN }} npx tinacms build
 
       - name: Build with Hugo
         env:
