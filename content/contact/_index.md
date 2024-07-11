@@ -2,4 +2,4 @@
 title: Contact Us
 ---
 
-Contact us
+Direct all inquiries to <a href="mailto:info@bahala.org">info@bahala.org</a>
